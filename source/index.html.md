@@ -11,7 +11,6 @@ toc_footers:
   - <a href='https://github.com/lord/slate'>Docs by Slate</a>
 
 includes:
-  - errors
 
 search: true
 ---
