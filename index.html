@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Snap.as API Documentation</title>
 
-    <style>
+    <style media="screen">
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight .gh {
@@ -42,7 +42,7 @@
 .highlight .cs {
   color: #75715e;
 }
-.highlight .c, .highlight .cd {
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
   color: #75715e;
 }
 .highlight .err {
@@ -126,7 +126,7 @@
 .highlight .s1 {
   color: #e6db74;
 }
-.highlight .s {
+.highlight .s, .highlight .sa, .highlight .dl {
   color: #e6db74;
 }
 .highlight .na {
@@ -141,16 +141,13 @@
 .highlight .ne {
   color: #a6e22e;
 }
-.highlight .nf {
+.highlight .nf, .highlight .fm {
   color: #a6e22e;
 }
 .highlight .vc {
   color: #ffffff;
 }
 .highlight .nn {
-  color: #ffffff;
-}
-.highlight .nl {
   color: #ffffff;
 }
 .highlight .ni {
@@ -165,7 +162,7 @@
 .highlight .vi {
   color: #ffffff;
 }
-.highlight .nv {
+.highlight .nv, .highlight .vm {
   color: #ffffff;
 }
 .highlight .w {
@@ -176,6 +173,9 @@
 }
 .highlight .n, .highlight .py, .highlight .nx {
   color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
 }
 .highlight .ow {
   color: #f92672;
@@ -196,20 +196,107 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-e9bde216.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
   </head>
 
   <body class="index" data-languages="[&quot;shell&quot;,&quot;go&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar-cad8cdcb.png" alt="" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+      <img src="images/logo-8f73c462.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="go">go</a>
@@ -218,15 +305,38 @@
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-      <div id="toc" class="toc-list-h1">
+      <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#base-api" class="toc-h2 toc-link" data-title="Base API">Base API</a>
+                  </li>
+                  <li>
+                    <a href="#errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
+                  </li>
+                  <li>
+                    <a href="#responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                  </li>
+              </ul>
           </li>
-      </div>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#photos" class="toc-h1 toc-link" data-title="Photos">Photos</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#upload-a-photo" class="toc-h2 toc-link" data-title="Upload a Photo">Upload a Photo</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
         <ul class="toc-footer">
+            <li><a href='https://developers.snap.as/'>Snap.as Developers</a></li>
             <li><a href='https://twitter.com/snap_as'>@snap_as</a></li>
             <li><a href='https://we.snap.as/'>Updates</a></li>
-            <li><a href='https://github.com/lord/slate'>Docs by Slate</a></li>
+            <li><a href='https://github.com/slatedocs/slate'>Documentation by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -235,7 +345,146 @@
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the <a href="https://snap.as">Snap.as</a> API! Our API lets you build your own image-based applications or utilities on our platform.</p>
 
-<p><em>This API is currently a major work in progress. This is all for now.</em></p>
+<p>Snap.as is part of the <a href="https://write.as">Write.as</a> suite of apps, and follows a similar API design. So if you&#39;re familiar with the <a href="https://developers.write.as/docs/api/">Write.as / WriteFreely API</a>, working with the Snap.as API should be fairly straightforward.</p>
+
+<aside class="notice">
+This API documentation is only valid for Snap.as users created after October 6, 2020. It will apply to all users in the near future.
+</aside>
+<h2 id='base-api'>Base API</h2>
+<p>Call all requests on this base URL: <code>https://v2.snap.as</code></p>
+<h2 id='errors'>Errors</h2>
+<blockquote>
+<p>Failed requests return with an error <code>code</code> and <code>error_msg</code>, like below.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"400"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error_msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bad request."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The Snap.as API uses conventional HTTP response codes to indicate the status of an API request. Codes in the <code>2xx</code> range indicate success or that more information is available in the returned data, in the case of bulk actions.
+Codes in the <code>4xx</code> range indicate that the request failed with the information provided. Codes in the <code>5xx</code> range indicate an error with the Snap.as servers (you shouldn&#39;t see many of these).</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- The request didn&#39;t provide the correct parameters, or JSON / form data was improperly formatted.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- No valid user token was given.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- You attempted an action that you&#39;re not allowed to perform.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The requested resource doesn&#39;t exist.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- The attempted method isn&#39;t supported.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The entity was unpublished, but may be back.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re making too many requests, especially to the same resource.</td>
+</tr>
+<tr>
+<td>500, 502, 503</td>
+<td>Server errors -- Something went wrong on our end.</td>
+</tr>
+</tbody></table>
+<h2 id='responses'>Responses</h2>
+<blockquote>
+<p>Successful requests return with a <code>code</code> in the <code>2xx</code> range and a <code>data</code> object or array, depending on the request.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>All responses are returned in a JSON object containing two fields:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>code</code></td>
+<td>integer</td>
+<td>An HTTP status code in the <code>2xx</code> range.</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>object or array</td>
+<td>A single object for most requests; an array for bulk requests.</td>
+</tr>
+</tbody></table>
+
+<p>This wrapper will never contain an <code>error_msg</code> property at the top level.</p>
+<h1 id='authentication'>Authentication</h1>
+<p>All endpoints require authentication. You&#39;ll need to pass a Write.as user access token with any requests:</p>
+
+<p><code>Authorization: 00000000-0000-0000-0000-000000000000</code></p>
+
+<p>See the <a href="https://developers.write.as/docs/api/#authenticate-a-user">Authenticate a User</a> section for information on logging in.</p>
+
+<aside class="notice">
+Replace <code>00000000-0000-0000-0000-000000000000</code> with a user's access token.
+</aside>
+<h1 id='photos'>Photos</h1><h2 id='upload-a-photo'>Upload a Photo</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://v2.snap.as/api/photos/upload"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: 00000000-0000-0000-0000-000000000000"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: multipart/form-data"</span> <span class="se">\</span>
+  <span class="nt">-F</span> <span class="s2">"file=@photo.jpeg"</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aBCd5678"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo.jpeg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">219995</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://i.snap.as/aBCd5678.jpeg"</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This uploads a new photo to the authenticated user&#39;s account.</p>
+<h3 id='definition'>Definition</h3>
+<p><code>POST /api/photos/upload</code></p>
+<h3 id='arguments'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>file</strong></td>
+<td>file</td>
+<td>yes</td>
+<td>The photo to be uploaded.</td>
+</tr>
+</tbody></table>
+<h3 id='returns'>Returns</h3>
+<p>A <code>201 Created</code> HTTP status and the newly created photo object.</p>
 
       </div>
       <div class="dark-box">
@@ -245,22 +494,5 @@
           </div>
       </div>
     </div>
-    <!-- Piwik -->
-	<script type="text/javascript">
-	  var _paq = _paq || [];
-	  _paq.push(["setDomains", ["developers.snap.as"]]);
-	  _paq.push(['trackPageView']);
-	  _paq.push(['enableLinkTracking']);
-	  _paq.push(['enableHeartBeatTimer']);
-	  (function() {
-		var u="//analytics.write.as/";
-		_paq.push(['setTrackerUrl', u+'piwik.php']);
-		_paq.push(['setSiteId', 20]);
-		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-	  })();
-	</script>
-	<noscript><p><img src="//analytics.write.as/piwik.php?idsite=20" style="border:0;" alt="" /></p></noscript>
-	<!-- End Piwik Code -->
   </body>
 </html>
