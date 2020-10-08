@@ -105,8 +105,14 @@ curl "https://v2.snap.as/api/photos/upload" \
 
 ```json
 {
-  "code": 200,
-  "data": "abc4567"
+  "code": 201,
+  "data": {
+    "id": "aBCd5678",
+    "body": null,
+    "filename": "photo.jpeg",
+    "size": 219995,
+    "url": "https://i.snap.as/aBCd5678.jpeg",
+  }
 }
 ```
 
@@ -124,4 +130,4 @@ Parameter | Type | Required | Description
 
 ### Returns
 
-The ID of the newly created image.
+A `201 Created` HTTP status and the newly created photo object.
