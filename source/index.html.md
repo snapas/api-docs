@@ -6,6 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - go
 
 toc_footers:
+  - <a href='https://developers.snap.as/'>Snap.as Developers</a>
   - <a href='https://twitter.com/snap_as'>@snap_as</a>
   - <a href='https://we.snap.as/'>Updates</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation by Slate</a>
