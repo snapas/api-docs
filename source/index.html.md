@@ -131,3 +131,25 @@ Parameter | Type | Required | Description
 ### Returns
 
 A `201 Created` HTTP status and the newly created photo object.
+
+## Delete a Photo
+
+```shell
+curl "https://v2.snap.as/api/photos/aBCd5678" \
+  -X DELETE \
+  -H "Authorization: 00000000-0000-0000-0000-000000000000"
+```
+
+This deletes a photo from the authenticated user's account.
+
+### Definition
+
+`POST /api/photos/{PHOTO_ID}`
+
+### Arguments
+
+None.
+
+### Returns
+
+A `200 OK` HTTP status.
