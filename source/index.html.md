@@ -28,9 +28,9 @@ Snap.as is part of the [Write.as](https://write.as) suite of apps, and follows a
 This API documentation is only valid for Snap.as users created after October 6, 2020. It will apply to all users in the near future.
 </aside>
 
-## Base API
+## Base URL
 
-Call all requests on this base URL: `https://v2.snap.as`
+Call all requests on this base URL: `https://snap.as`
 
 ## Errors
 
@@ -95,9 +95,8 @@ Replace <code>00000000-0000-0000-0000-000000000000</code> with a user's access t
 ## Upload a Photo
 
 ```shell
-curl "https://v2.snap.as/api/photos/upload" \
+curl "https://snap.as/api/photos/upload" \
   -H "Authorization: 00000000-0000-0000-0000-000000000000" \
-  -H "Content-Type: multipart/form-data" \
   -F "file=@photo.jpeg"
 ```
 
@@ -135,7 +134,7 @@ A `201 Created` HTTP status and the newly created photo object.
 ## Delete a Photo
 
 ```shell
-curl "https://v2.snap.as/api/photos/aBCd5678" \
+curl "https://snap.as/api/photos/aBCd5678" \
   -X DELETE \
   -H "Authorization: 00000000-0000-0000-0000-000000000000"
 ```
