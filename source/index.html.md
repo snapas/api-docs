@@ -152,3 +152,51 @@ None.
 ### Returns
 
 A `200 OK` HTTP status.
+
+
+# Users
+
+## Retrieve User's Photos
+
+```shell
+curl "https://snap.as/api/me/photos" \
+  -H "Authorization: 00000000-0000-0000-0000-000000000000"
+```
+
+> Example Response
+
+```json
+{
+  "code": 200,
+  "data": [
+    {
+      "id": "aBCd5678",
+      "body": null,
+      "filename": "photo.jpeg",
+      "size": 219995,
+      "url": "https://i.snap.as/aBCd5678.jpeg",
+    },
+    {
+      "id": "efGh9012",
+      "body": null,
+      "filename": "vacation.jpg",
+      "size": 40346,
+      "url": "https://i.snap.as/efGh9012.jpg",
+    }
+  ]
+}
+```
+
+This retrieves all photos on a user's account.
+
+### Definition
+
+`POST /api/me/photos`
+
+### Arguments
+
+None.
+
+### Returns
+
+A `200 Created` HTTP status and all photos on the user's account.
