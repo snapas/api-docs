@@ -310,7 +310,7 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#base-api" class="toc-h2 toc-link" data-title="Base API">Base API</a>
+                    <a href="#base-url" class="toc-h2 toc-link" data-title="Base URL">Base URL</a>
                   </li>
                   <li>
                     <a href="#errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
@@ -328,6 +328,17 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#upload-a-photo" class="toc-h2 toc-link" data-title="Upload a Photo">Upload a Photo</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-photo" class="toc-h2 toc-link" data-title="Delete a Photo">Delete a Photo</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#retrieve-user-39-s-photos" class="toc-h2 toc-link" data-title="Retrieve User's Photos">Retrieve User's Photos</a>
                   </li>
               </ul>
           </li>
@@ -350,8 +361,8 @@
 <aside class="notice">
 This API documentation is only valid for Snap.as users created after October 6, 2020. It will apply to all users in the near future.
 </aside>
-<h2 id='base-api'>Base API</h2>
-<p>Call all requests on this base URL: <code>https://v2.snap.as</code></p>
+<h2 id='base-url'>Base URL</h2>
+<p>Call all requests on this base URL: <code>https://snap.as</code></p>
 <h2 id='errors'>Errors</h2>
 <blockquote>
 <p>Failed requests return with an error <code>code</code> and <code>error_msg</code>, like below.</p>
@@ -445,9 +456,8 @@ Codes in the <code>4xx</code> range indicate that the request failed with the in
 <aside class="notice">
 Replace <code>00000000-0000-0000-0000-000000000000</code> with a user's access token.
 </aside>
-<h1 id='photos'>Photos</h1><h2 id='upload-a-photo'>Upload a Photo</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://v2.snap.as/api/photos/upload"</span> <span class="se">\</span>
+<h1 id='photos'>Photos</h1><h2 id='upload-a-photo'>Upload a Photo</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://snap.as/api/photos/upload"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: 00000000-0000-0000-0000-000000000000"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: multipart/form-data"</span> <span class="se">\</span>
   <span class="nt">-F</span> <span class="s2">"file=@photo.jpeg"</span>
 </code></pre></div>
 <blockquote>
@@ -485,6 +495,50 @@ Replace <code>00000000-0000-0000-0000-000000000000</code> with a user's access t
 </tbody></table>
 <h3 id='returns'>Returns</h3>
 <p>A <code>201 Created</code> HTTP status and the newly created photo object.</p>
+<h2 id='delete-a-photo'>Delete a Photo</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://snap.as/api/photos/aBCd5678"</span> <span class="se">\</span>
+  <span class="nt">-X</span> DELETE <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: 00000000-0000-0000-0000-000000000000"</span>
+</code></pre></div>
+<p>This deletes a photo from the authenticated user&#39;s account.</p>
+<h3 id='definition-2'>Definition</h3>
+<p><code>POST /api/photos/{PHOTO_ID}</code></p>
+<h3 id='arguments-2'>Arguments</h3>
+<p>None.</p>
+<h3 id='returns-2'>Returns</h3>
+<p>A <code>200 OK</code> HTTP status.</p>
+<h1 id='users'>Users</h1><h2 id='retrieve-user-39-s-photos'>Retrieve User&#39;s Photos</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://snap.as/api/me/photos"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: 00000000-0000-0000-0000-000000000000"</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aBCd5678"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo.jpeg"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">219995</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://i.snap.as/aBCd5678.jpeg"</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"efGh9012"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vacation.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">40346</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://i.snap.as/efGh9012.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This retrieves all photos on a user&#39;s account.</p>
+<h3 id='definition-3'>Definition</h3>
+<p><code>POST /api/me/photos</code></p>
+<h3 id='arguments-3'>Arguments</h3>
+<p>None.</p>
+<h3 id='returns-3'>Returns</h3>
+<p>A <code>200 Created</code> HTTP status and all photos on the user&#39;s account.</p>
 
       </div>
       <div class="dark-box">
