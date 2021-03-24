@@ -310,6 +310,9 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#libraries" class="toc-h2 toc-link" data-title="Libraries">Libraries</a>
+                  </li>
+                  <li>
                     <a href="#base-url" class="toc-h2 toc-link" data-title="Base URL">Base URL</a>
                   </li>
                   <li>
@@ -357,10 +360,24 @@
 <p>Welcome to the <a href="https://snap.as">Snap.as</a> API! Our API lets you build your own image-based applications or utilities on our platform.</p>
 
 <p>Snap.as is part of the <a href="https://write.as">Write.as</a> suite of apps, and follows a similar API design. So if you&#39;re familiar with the <a href="https://developers.write.as/docs/api/">Write.as / WriteFreely API</a>, working with the Snap.as API should be fairly straightforward.</p>
+<h2 id='libraries'>Libraries</h2>
+<p>These are our official API libraries:</p>
 
-<aside class="notice">
-This API documentation is only valid for Snap.as users created after October 6, 2020. It will apply to all users in the near future.
-</aside>
+<table><thead>
+<tr>
+<th>Language</th>
+<th>Fetch</th>
+<th>Docs</th>
+<th>Repository</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Go</strong></td>
+<td><code>go get github.com/snapas/go-snapas</code></td>
+<td><a href="https://godoc.org/github.com/snapas/go-snapas">GoDoc</a></td>
+<td><a href="https://github.com/snapas/go-snapas">GitHub</a></td>
+</tr>
+</tbody></table>
 <h2 id='base-url'>Base URL</h2>
 <p>Call all requests on this base URL: <code>https://snap.as</code></p>
 <h2 id='errors'>Errors</h2>
@@ -446,17 +463,27 @@ Codes in the <code>4xx</code> range indicate that the request failed with the in
 </tbody></table>
 
 <p>This wrapper will never contain an <code>error_msg</code> property at the top level.</p>
-<h1 id='authentication'>Authentication</h1>
-<p>All endpoints require authentication. You&#39;ll need to pass a Write.as user access token with any requests:</p>
+<h1 id='authentication'>Authentication</h1><div class="highlight"><pre class="highlight go tab-go"><code><span class="n">wc</span> <span class="o">:=</span> <span class="n">writeas</span><span class="o">.</span><span class="n">NewClient</span><span class="p">()</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">wc</span><span class="o">.</span><span class="n">LogIn</span><span class="p">(</span><span class="s">"username"</span><span class="p">,</span> <span class="s">"password"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="c">// Handle error...</span>
+<span class="p">}</span>
+<span class="n">sc</span> <span class="o">:=</span> <span class="n">snapas</span><span class="o">.</span><span class="n">NewClient</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">AccessToken</span><span class="p">)</span>
+</code></pre></div>
+<p>All endpoints require authentication. You&#39;ll need to pass a <strong>Write.as user access token</strong> with any requests:</p>
 
 <p><code>Authorization: 00000000-0000-0000-0000-000000000000</code></p>
 
-<p>See the <a href="https://developers.write.as/docs/api/#authenticate-a-user">Authenticate a User</a> section for information on logging in.</p>
+<p>See the <a href="https://developers.write.as/docs/api/#authenticate-a-user">Authenticate a User</a> section in the Write.as API docs for information on logging in.</p>
 
 <aside class="notice">
 Replace <code>00000000-0000-0000-0000-000000000000</code> with a user's access token.
 </aside>
-<h1 id='photos'>Photos</h1><h2 id='upload-a-photo'>Upload a Photo</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://snap.as/api/photos/upload"</span> <span class="se">\</span>
+<h1 id='photos'>Photos</h1><h2 id='upload-a-photo'>Upload a Photo</h2><div class="highlight"><pre class="highlight go tab-go"><code><span class="n">sc</span> <span class="o">:=</span> <span class="n">snapas</span><span class="o">.</span><span class="n">NewClient</span><span class="p">(</span><span class="s">"00000000-0000-0000-0000-000000000000"</span><span class="p">)</span>
+<span class="n">p</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">sc</span><span class="o">.</span><span class="n">UploadPhoto</span><span class="p">(</span><span class="o">&amp;</span><span class="n">snapas</span><span class="o">.</span><span class="n">PhotoParams</span><span class="p">{</span>
+    <span class="n">FileName</span><span class="o">:</span> <span class="s">"photo.jpeg"</span><span class="p">,</span>
+<span class="p">})</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://snap.as/api/photos/upload"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: 00000000-0000-0000-0000-000000000000"</span> <span class="se">\</span>
   <span class="nt">-F</span> <span class="s2">"file=@photo.jpeg"</span>
 </code></pre></div>
