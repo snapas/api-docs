@@ -24,6 +24,13 @@ Welcome to the [Snap.as](https://snap.as) API! Our API lets you build your own i
 
 Snap.as is part of the [Write.as](https://write.as) suite of apps, and follows a similar API design. So if you're familiar with the [Write.as / WriteFreely API](https://developers.write.as/docs/api/), working with the Snap.as API should be fairly straightforward.
 
+## Libraries
+
+These are our official API libraries:
+
+Language | Fetch | Docs | Repository
+-------- | ----- | ---- | ----
+**Go** | `go get github.com/snapas/go-snapas` | [GoDoc](https://godoc.org/github.com/snapas/go-snapas) | [GitHub](https://github.com/snapas/go-snapas)
 
 ## Base URL
 
@@ -77,11 +84,20 @@ This wrapper will never contain an `error_msg` property at the top level.
 
 # Authentication
 
-All endpoints require authentication. You'll need to pass a Write.as user access token with any requests:
+```go
+wc := writeas.NewClient()
+u, err := wc.LogIn("username", "password")
+if err != nil {
+	    // Handle error...
+}
+sc := snapas.NewClient(u.AccessToken)
+```
+
+All endpoints require authentication. You'll need to pass a **Write.as user access token** with any requests:
 
 `Authorization: 00000000-0000-0000-0000-000000000000`
 
-See the [Authenticate a User](https://developers.write.as/docs/api/#authenticate-a-user) section for information on logging in.
+See the [Authenticate a User](https://developers.write.as/docs/api/#authenticate-a-user) section in the Write.as API docs for information on logging in.
 
 <aside class="notice">
 Replace <code>00000000-0000-0000-0000-000000000000</code> with a user's access token.
@@ -90,6 +106,13 @@ Replace <code>00000000-0000-0000-0000-000000000000</code> with a user's access t
 # Photos
 
 ## Upload a Photo
+
+```go
+sc := snapas.NewClient("00000000-0000-0000-0000-000000000000")
+p, err := sc.UploadPhoto(&snapas.PhotoParams{
+	FileName: "photo.jpeg",
+})
+```
 
 ```shell
 curl "https://snap.as/api/photos/upload" \
