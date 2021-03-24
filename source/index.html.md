@@ -24,9 +24,6 @@ Welcome to the [Snap.as](https://snap.as) API! Our API lets you build your own i
 
 Snap.as is part of the [Write.as](https://write.as) suite of apps, and follows a similar API design. So if you're familiar with the [Write.as / WriteFreely API](https://developers.write.as/docs/api/), working with the Snap.as API should be fairly straightforward.
 
-<aside class="notice">
-This API documentation is only valid for Snap.as users created after October 6, 2020. It will apply to all users in the near future.
-</aside>
 
 ## Base URL
 
